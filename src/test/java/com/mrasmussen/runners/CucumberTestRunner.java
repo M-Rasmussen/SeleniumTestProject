@@ -8,8 +8,8 @@ import io.cucumber.testng.CucumberOptions;
         glue = "com.mrasmussen.steps",
         plugin = {
                 "pretty",
-                "html:target/cucumber-reports/cucumber.html",
-                "json:target/cucumber-reports/cucumber.json"
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+                "html:target/cucumber-reports/cucumber.html"
         },
         monochrome = true
 )
