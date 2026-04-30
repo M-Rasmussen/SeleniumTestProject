@@ -7,6 +7,11 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import io.qameta.allure.Allure;
+import java.io.ByteArrayInputStream;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
 public class LoginSteps {
 
     private WebDriver driver;
@@ -38,10 +43,19 @@ public class LoginSteps {
         Assert.assertTrue(loginPage.getFlashMessage().contains("Your username is invalid"));
     }
 
-    @After
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+@After
+public void tearDown(io.cucumber.java.Scenario scenario) {
+    if (scenario.isFailed()) {
+        byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+
+        Allure.addAttachment(
+                "Failure Screenshot",
+                new ByteArrayInputStream(screenshot)
+        );
     }
+
+    if (driver != null) {
+        driver.quit();
+    }
+}
 }
