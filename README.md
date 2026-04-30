@@ -97,16 +97,3 @@ Valid credentials used by the test:
 Username: tomsmith
 Password: SuperSecretPassword!
 ```
-
-## Resume Bullet You Can Use
-
-Built a Selenium WebDriver test automation framework using Java, TestNG, Maven, and Page Object Model, implementing reusable page objects, dynamic XPath selectors, and CI-based test execution through GitHub Actions.
-
-## Future Enhancements
-
-- Add negative login test coverage
-- Add screenshot capture on failure
-- Add REST API validation tests
-- Add parallel test execution
-- Add Cucumber BDD scenarios
-- Add test reports through Allure or ExtentReports
