@@ -1,8 +1,26 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Selenium Automation Suite" parallel="false">
-    <test name="Login Tests">
+<suite name="Selenium Automation Suite" parallel="tests" thread-count="2">
+
+    <!-- UI TESTS -->
+    <test name="UI Tests">
         <classes>
-            <class name="com.mrasmussen.tests.LoginTest" />
+            <class name="com.mrasmussen.tests.LoginTest"/>
+            <class name="com.mrasmussen.tests.LoginNegativeTest"/>
         </classes>
     </test>
+
+    <!-- API TESTS -->
+    <test name="API Tests">
+        <classes>
+            <class name="com.mrasmussen.tests.ApiValidationTest"/>
+        </classes>
+    </test>
+
+    <!-- CUCUMBER (BDD) -->
+    <test name="BDD Tests">
+        <classes>
+            <class name="com.mrasmussen.runners.CucumberTestRunner"/>
+        </classes>
+    </test>
+
 </suite>

@@ -15,6 +15,7 @@ public class LoginPage {
     private final By usernameInput = By.id("username");
     private final By passwordInput = By.id("password");
     private final By loginButton = By.cssSelector("button[type='submit']");
+    private final By flashMessage = By.id("flash");
 
     // Example of a dynamic XPath selector for ATS alignment and maintainable UI targeting.
     private final By flashMessageByText = By.xpath("//div[@id='flash' and contains(., 'You logged into a secure area!')]");
@@ -53,5 +54,9 @@ public class LoginPage {
 
     public boolean isSuccessMessageVisible() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(flashMessageByText)).isDisplayed();
+    }
+    
+    public String getFlashMessage() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(flashMessage)).getText();
     }
 }
